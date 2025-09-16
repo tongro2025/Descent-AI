@@ -2,6 +2,30 @@
 
 A championship-level multimodal AI system for detecting discrepancies across text, image, and structured data using Google Cloud BigQuery AI and Vertex AI.
 
+## 📋 Data Preparation
+
+**⚠️ IMPORTANT: Competition data is not included in this repository.**
+
+To reproduce the results, you need to:
+
+1. **Download competition data** from Kaggle (following competition rules)
+2. **Place data files** in the `data/` directory:
+   - `raw_texts.csv` - Product descriptions and manuals
+   - `feat_struct.csv` - Structured features
+   - `struct_embeddings.csv` - Pre-computed embeddings
+   - `text_embeddings.csv` - Text embeddings
+
+3. **Set up environment variables**:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your GCP project details
+   ```
+
+4. **Run the pipeline**:
+   ```bash
+   python descent_cli.py run --mode vertex
+   ```
+
 ## 🏆 Key Features
 
 - **3 Embedding Options**: Vertex AI, Open Source, Native BigQuery AI

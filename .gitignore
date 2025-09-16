@@ -69,6 +69,17 @@ tmp/
 !package*.json
 !tsconfig*.json
 
+# Competition data (NEVER commit)
+data/
+competition_data/
+*.csv
+!requirements.csv
+!package*.csv
+
+# Environment variables
+.env
+.env.*
+
 # Jupyter Notebook
 .ipynb_checkpoints
 
