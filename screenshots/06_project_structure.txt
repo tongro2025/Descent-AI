@@ -1,0 +1,72 @@
+📁 Project Structure
+=================================
+
+Main Project Files:
+
+total 288
+drwxr-xr-x@  4 hakjun  staff    128 Sep 16 16:54 __pycache__
+drwxr-xr-x@ 28 hakjun  staff    896 Sep 16 16:54 .
+drwx------@ 25 hakjun  staff    800 Sep 16 16:46 ..
+-rw-r--r--   1 hakjun  staff    243 Sep 16 13:59 .env
+-rw-r--r--   1 hakjun  staff    135 Sep 16 10:27 .env.example
+drwxr-xr-x@ 34 hakjun  staff   1088 Sep 16 15:02 artifacts
+-rw-r--r--   1 hakjun  staff   7386 Sep 16 16:53 CAPTURE_GUIDE.md
+-rw-r--r--@  1 hakjun  staff    233 Sep 16 16:54 config.yaml
+drwxr-xr-x   6 hakjun  staff    192 Sep 16 10:54 data
+-rwxr-xr-x@  1 hakjun  staff    967 Sep 16 16:28 demo_script.sh
+-rwxr-xr-x   1 hakjun  staff   8807 Sep 16 16:28 descent_cli.py
+-rwxr-xr-x   1 hakjun  staff  11443 Sep 16 14:32 descent_pipeline_v2.py
+-rw-r--r--   1 hakjun  staff  48219 Sep 16 16:54 descent_submission.zip
+drwxr-xr-x   9 hakjun  staff    288 Sep 16 16:49 docs
+-rw-r--r--   1 hakjun  staff    560 Sep 16 13:50 env.example
+-rwxr-xr-x   1 hakjun  staff  12395 Sep 16 14:32 eval_harness.py
+drwxr-xr-x@  2 hakjun  staff     64 Sep 16 15:01 logs
+-rw-r--r--   1 hakjun  staff   5571 Sep 16 16:28 Makefile
+-rw-r--r--   1 hakjun  staff   8350 Sep 16 16:28 README.md
+-rw-r--r--   1 hakjun  staff     95 Sep 16 13:39 requirements.txt
+-rwxr-xr-x   1 hakjun  staff   2072 Sep 16 16:36 run_demo.sh
+drwxr-xr-x   8 hakjun  staff    256 Sep 16 16:55 screenshots
+drwxr-xr-x   8 hakjun  staff    256 Sep 16 16:49 scripts
+drwxr-xr-x  20 hakjun  staff    640 Sep 16 14:26 sql
+drwxr-xr-x   3 hakjun  staff     96 Sep 16 10:27 src
+drwxr-xr-x  60 hakjun  staff   1920 Sep 16 16:54 submission_bundle
+drwxr-xr-x   3 hakjun  staff     96 Sep 16 16:49 temp
+drwxr-xr-x@  8 hakjun  staff    256 Sep 16 13:51 venv
+
+Artifacts Directory:
+
+total 248
+drwxr-xr-x@ 34 hakjun  staff  1088 Sep 16 15:02 .
+drwxr-xr-x@ 28 hakjun  staff   896 Sep 16 16:54 ..
+-rw-r--r--@  1 hakjun  staff   147 Sep 16 15:02 01_basic_data.sql
+-rw-r--r--@  1 hakjun  staff   314 Sep 16 15:02 02_text_embeddings.sql
+-rw-r--r--@  1 hakjun  staff   368 Sep 16 15:02 03_image_embeddings.sql
+-rw-r--r--@  1 hakjun  staff   260 Sep 16 15:02 04_ori_results.sql
+-rw-r--r--@  1 hakjun  staff   402 Sep 16 15:02 05_multimodal_comparison.sql
+-rw-r--r--@  1 hakjun  staff   985 Sep 16 15:02 06_embedding_dimensions.sql
+-rw-r--r--@  1 hakjun  staff   313 Sep 16 15:02 07_evaluation_metrics.sql
+-rw-r--r--@  1 hakjun  staff   254 Sep 16 15:02 08_multimodal_stitched.sql
+-rw-r--r--@  1 hakjun  staff  2518 Sep 16 15:02 bq_capture_summary.md
+-rw-r--r--@  1 hakjun  staff   176 Sep 16 15:02 bq_results_embedding_dimensions.csv
+-rw-r--r--@  1 hakjun  staff   403 Sep 16 15:02 bq_results_embedding_dimensions.json
+-rw-r--r--@  1 hakjun  staff   650 Sep 16 15:02 bq_results_image_embeddings.csv
+-rw-r--r--@  1 hakjun  staff  1118 Sep 16 15:02 bq_results_image_embeddings.json
+-rw-r--r--@  1 hakjun  staff   516 Sep 16 15:02 bq_results_multimodal_comparison.csv
+-rw-r--r--@  1 hakjun  staff  1559 Sep 16 15:02 bq_results_multimodal_comparison.json
+-rw-r--r--@  1 hakjun  staff   290 Sep 16 15:02 bq_results_multimodal_stitched.csv
+-rw-r--r--@  1 hakjun  staff   872 Sep 16 15:02 bq_results_multimodal_stitched.json
+-rw-r--r--@  1 hakjun  staff   427 Sep 16 15:02 bq_results_text_embeddings.csv
+-rw-r--r--@  1 hakjun  staff   895 Sep 16 15:02 bq_results_text_embeddings.json
+-rw-r--r--@  1 hakjun  staff  1286 Sep 16 14:32 evaluation_comparison.csv
+-rw-r--r--@  1 hakjun  staff  1356 Sep 16 14:32 evaluation_report.md
+-rw-r--r--@  1 hakjun  staff  1690 Sep 16 14:32 evaluation_results.json
+-rw-r--r--@  1 hakjun  staff  1122 Sep 16 15:00 multimodal_evidence_report.md
+-rw-r--r--   1 hakjun  staff    72 Sep 16 14:07 performance_metrics_mm.csv
+-rw-r--r--   1 hakjun  staff    72 Sep 16 14:02 performance_metrics.csv
+-rw-r--r--   1 hakjun  staff   560 Sep 16 14:07 report_before_after_mm.csv
+-rw-r--r--   1 hakjun  staff   672 Sep 16 14:10 report_before_after_native.csv
+-rw-r--r--   1 hakjun  staff   440 Sep 16 14:02 report_before_after.csv
+-rw-r--r--   1 hakjun  staff   766 Sep 16 14:07 report_ori_mm.csv
+-rw-r--r--   1 hakjun  staff   850 Sep 16 14:10 report_ori_native.csv
+-rw-r--r--   1 hakjun  staff   589 Sep 16 14:02 report_ori.csv
+-rw-r--r--@  1 hakjun  staff     0 Sep 16 16:54 run_log.jsonl

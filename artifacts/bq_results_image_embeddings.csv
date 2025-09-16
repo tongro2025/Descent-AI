@@ -1,0 +1,4 @@
+id,uri,embedding_dim,model_name,model_version,embedding_type,first_value,second_value,third_value
+img_cat1,gs://cloud-samples-data/bigquery/tutorials/cymbal-pets/images/cat_1.jpg,1408,multimodalembedding@001,001,image,0.002449539954591566,-0.019591296356277182,0.015899814816154656
+img_dog1,gs://cloud-samples-data/bigquery/tutorials/cymbal-pets/images/dog_1.jpg,1408,multimodalembedding@001,001,image,-0.04796923429624065,-0.009981447526652483,-0.030197389987957606
+img_dog2,gs://cloud-samples-data/bigquery/tutorials/cymbal-pets/images/dog_2.jpg,1408,multimodalembedding@001,001,image,-0.021117241620552677,0.0294687069331724,-0.025923595064753124

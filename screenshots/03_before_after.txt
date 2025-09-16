@@ -1,0 +1,15 @@
+📈 Before/After Comparison
+=================================
+
+Multimodal vs Text Comparison:
+
+mode,id,ori,predict,semantic_distance,rule_score
+multimodal,img_cat1,1.0,1,1.0,0.0
+multimodal,img_dog1,1.0,1,1.0,0.0
+multimodal,img_dog2,1.0,1,1.0,0.0
+multimodal,A200,0.34068989764138313,1,0.05812842520197592,0.0
+multimodal,A100,0.33299839034397927,1,0.047140557634256126,0.0
+multimodal,A300,0.3151938462297569,1,0.021705494613938378,0.0
+multimodal,B100,0.3057793268710525,1,0.008256181244360743,0.0
+multimodal,B200,0.3053578192417905,1,0.007654027488272171,0.0
+multimodal,C100,0.3,1,0.0,0.0
