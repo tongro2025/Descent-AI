@@ -5,7 +5,7 @@ SELECT
   text,
   distance
 FROM VECTOR_SEARCH(
-  TABLE `gen-lang-client-0790720774.descent_demo.text_embeddings`,
+  TABLE `carbide-skyline-472302-f0.descent_demo.text_embeddings`,
   'embedding',
   [0.1, 0.2, 0.3, 0.4, 0.5], -- A100과 유사한 쿼리
   top_k => 3,
@@ -18,7 +18,7 @@ SELECT
   features,
   distance
 FROM VECTOR_SEARCH(
-  TABLE `gen-lang-client-0790720774.descent_demo.struct_embeddings`,
+  TABLE `carbide-skyline-472302-f0.descent_demo.struct_embeddings`,
   'features',
   [1.0, 0.2, 0.8], -- A100의 특징과 유사한 쿼리
   top_k => 3,
@@ -33,12 +33,13 @@ SELECT
   combined_embedding,
   distance
 FROM VECTOR_SEARCH(
-  TABLE `gen-lang-client-0790720774.descent_demo.combined_embeddings`,
+  TABLE `carbide-skyline-472302-f0.descent_demo.combined_embeddings`,
   'combined_embedding',
   [0.1, 0.2, 0.3, 0.4, 0.5, 1.0, 0.2, 0.8], -- 텍스트 + 구조화 특징 결합
   top_k => 5,
   distance_type => 'COSINE'
 );
+
 
 
 

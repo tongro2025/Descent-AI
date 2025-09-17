@@ -24,3 +24,4 @@ INSERT INTO `${GCP_PROJECT}.${BQ_DATASET}.feat_struct` (id, f1, f2, f3, meta) VA
 
 
 
+

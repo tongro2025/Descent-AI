@@ -7,6 +7,6 @@ max_retries: 3
 mode: vertex
 ori_threshold: 0.3
 ori_weight: 0.7
-project_id: ${GCP_PROJECT_ID:-your-project-id}
+project_id: carbide-skyline-472302-f0
 retry_delay: 1.0
 top_k: 10

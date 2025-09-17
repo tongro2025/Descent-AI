@@ -1,8 +1,8 @@
 from google.cloud import bigquery
-from .config import BQ_LOCATION
+from .config import BQ_LOCATION, GCP_PROJECT
 
 def client() -> bigquery.Client:
-    return bigquery.Client(location=BQ_LOCATION)
+    return bigquery.Client(project=GCP_PROJECT, location=BQ_LOCATION)
 
 def run_sql(path: str, params: dict | None = None):
     sql = open(path, "r", encoding="utf-8").read()
