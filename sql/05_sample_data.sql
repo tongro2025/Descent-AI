@@ -17,3 +17,6 @@ INSERT INTO `${GCP_PROJECT}.${BQ_DATASET}.feat_struct` (id, f1, f2, f3, meta) VA
   ('B200', 0.5, 0.3,  0.4, JSON '{"qc_score":0.6}'),
   ('C100', 0.2, 0.7,  0.3, JSON '{"qc_score":0.85}');
 
+
+
+

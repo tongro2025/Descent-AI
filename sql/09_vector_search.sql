@@ -40,3 +40,6 @@ FROM VECTOR_SEARCH(
   distance_type => 'COSINE'
 );
 
+
+
+

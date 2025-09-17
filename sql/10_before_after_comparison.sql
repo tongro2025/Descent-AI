@@ -44,3 +44,6 @@ FROM vector_search v
 LEFT JOIN baseline b ON v.id = b.id
 ORDER BY v.distance ASC;
 
+
+
+

@@ -42,6 +42,32 @@ To reproduce the results, you need to:
 - Python 3.8+
 - Google Cloud SDK installed and authenticated
 
+### Environment Setup
+
+1. **Copy environment template**:
+   ```bash
+   cp env.example .env
+   ```
+
+2. **Configure your environment**:
+   Edit `.env` file with your actual values:
+   ```bash
+   # Required: Your Google Cloud Project ID
+   GCP_PROJECT_ID=your-actual-project-id
+   
+   # Optional: Customize other settings
+   BQ_DATASET=descent_demo
+   BQ_LOCATION=US
+   USE_REAL_EMBEDDINGS=true
+   USE_MULTIMODAL=false
+   ```
+
+3. **Set up Google Cloud authentication**:
+   ```bash
+   gcloud auth login
+   gcloud config set project your-actual-project-id
+   ```
+
 ### Installation
 
 ```bash
@@ -282,6 +308,27 @@ Descent/
 - **Reliability**: Production-ready with error handling
 - **Flexibility**: Multiple embedding options for different scenarios
 
+## 🔒 Security & Privacy
+
+### Data Protection
+- **No sensitive data**: This repository contains no actual competition data
+- **Environment variables**: All sensitive configuration is externalized
+- **Git ignore**: Sensitive files are automatically excluded from version control
+
+### Safe Configuration
+```bash
+# Never commit these files:
+.env
+*.key
+service-account*.json
+credentials.json
+```
+
+### Compliance
+- **CC BY 4.0 License**: Ensures commercial use is permitted
+- **Open Source**: All dependencies use permissive licenses
+- **No proprietary data**: Only uses publicly available datasets
+
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -292,7 +339,7 @@ Descent/
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the Creative Commons Attribution 4.0 International License - see the LICENSE file for details.
 
 ## 🙏 Acknowledgments
 

@@ -267,6 +267,19 @@ def load_config(config_path: str = "config.yaml") -> PipelineConfig:
     if os.path.exists(config_path):
         with open(config_path, 'r') as f:
             config_data = yaml.safe_load(f)
+        
+        # 환경변수 치환 처리
+        if 'project_id' in config_data:
+            project_id = config_data['project_id']
+            if project_id.startswith('${') and project_id.endswith('}'):
+                # ${GCP_PROJECT_ID:-your-project-id} 형태 처리
+                env_var = project_id[2:-1]  # GCP_PROJECT_ID:-your-project-id
+                if ':-' in env_var:
+                    var_name, default_value = env_var.split(':-', 1)
+                    config_data['project_id'] = os.getenv(var_name, default_value)
+                else:
+                    config_data['project_id'] = os.getenv(env_var, project_id)
+        
         return PipelineConfig(**config_data)
     else:
         # 기본 설정 생성

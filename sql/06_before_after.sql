@@ -26,3 +26,6 @@ LEFT JOIN `${GCP_PROJECT}.${BQ_DATASET}.raw_texts` b
 ON b.id = r.key
 ORDER BY r.score ASC;
 
+
+
+

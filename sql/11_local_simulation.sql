@@ -68,3 +68,6 @@ JOIN struct_similarity s ON b.id = s.id
 JOIN text_similarity t ON b.id = t.id
 ORDER BY combined_score DESC;
 
+
+
+

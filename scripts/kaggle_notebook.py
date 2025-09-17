@@ -3,6 +3,7 @@
 
 import pandas as pd
 import numpy as np
+import os
 from google.cloud import bigquery
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -12,7 +13,7 @@ from IPython.display import display, HTML
 client = bigquery.Client()
 
 # 프로젝트 설정
-PROJECT_ID = "your-project-id"  # 실제 프로젝트 ID로 변경
+PROJECT_ID = os.getenv("GCP_PROJECT_ID", "your-project-id")  # 환경변수에서 가져오거나 기본값 사용
 DATASET_ID = "descent_demo"
 
 print("🚀 Multimodal Descent: ORI-based Discrepancy Detection")

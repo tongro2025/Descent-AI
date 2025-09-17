@@ -14,3 +14,6 @@ CREATE VECTOR INDEX combined_embeddings_treeah
 ON `gen-lang-client-0790720774.descent_demo.combined_embeddings`(combined_embedding)
 OPTIONS(index_type = 'TREE_AH', distance_type = 'COSINE');
 
+
+
+

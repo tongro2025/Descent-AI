@@ -32,3 +32,6 @@ FROM `gen-lang-client-0790720774.descent_demo.text_embeddings` t
 JOIN `gen-lang-client-0790720774.descent_demo.struct_embeddings` s
 ON t.id = s.id;
 
+
+
+
