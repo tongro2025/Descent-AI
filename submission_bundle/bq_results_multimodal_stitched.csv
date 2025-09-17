@@ -1,6 +1,0 @@
-key,total_dimensions,alpha_text,beta_struct,gamma_image,fusion_method
-img_dog1,1408,1.0,0.5,0.5,Vertex AI + Z-score
-img_cat1,1408,1.0,0.5,0.5,Vertex AI + Z-score
-img_dog2,1408,1.0,0.5,0.5,Vertex AI + Z-score
-A300,771,1.0,0.5,0.5,Vertex AI + Z-score
-A100,771,1.0,0.5,0.5,Vertex AI + Z-score
