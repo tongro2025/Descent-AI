@@ -5,7 +5,7 @@
 
 # Default settings
 CONFIG_FILE ?= config.yaml
-PROJECT_ID ?= gen-lang-client-0790720774
+PROJECT_ID ?= your-project-id
 DATASET_ID ?= descent_demo
 MODE ?= vertex
 

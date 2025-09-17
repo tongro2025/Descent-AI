@@ -11,7 +11,7 @@ WITH baseline AS (
       WHEN REGEXP_CONTAINS(body, r'(불일치|모순|다름|다르|틀리)') THEN 1.0
       ELSE 0.0
     END as kw_score
-  FROM `gen-lang-client-0790720774.descent_demo.raw_texts`
+  FROM `${GCP_PROJECT}.descent_demo.raw_texts`
 ),
 
 -- 2. 구조화 특징 기반 유사도 (수치적 유사도)
@@ -29,7 +29,7 @@ struct_similarity AS (
       ABS(f1 - 0.9) + ABS(f2 - 0.1) + ABS(f3 - 0.7),
       ABS(f1 - 0.8) + ABS(f2 - 0.15) + ABS(f3 - 0.9)
     ) as min_distance
-  FROM `gen-lang-client-0790720774.descent_demo.feat_struct`
+  FROM `${GCP_PROJECT}.descent_demo.feat_struct`
 ),
 
 -- 3. 텍스트 길이 기반 유사도 (간단한 휴리스틱)
@@ -44,7 +44,7 @@ text_similarity AS (
       WHEN LENGTH(body) > 30 THEN 0.5
       ELSE 0.2
     END as length_score
-  FROM `gen-lang-client-0790720774.descent_demo.raw_texts`
+  FROM `${GCP_PROJECT}.descent_demo.raw_texts`
 )
 
 -- 4. 통합 점수 계산

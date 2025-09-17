@@ -5,7 +5,7 @@ WITH baseline AS (
     id, 
     body,
     IF(REGEXP_CONTAINS(body, r'(불일치|모순|다름|다르|틀리)'), 1, 0) AS kw_hit
-  FROM `gen-lang-client-0790720774.descent_demo.raw_texts`
+  FROM `${GCP_PROJECT}.descent_demo.raw_texts`
 ),
 
 -- 우리 방식: 벡터 검색
@@ -15,7 +15,7 @@ vector_search AS (
     text,
     distance
   FROM VECTOR_SEARCH(
-    TABLE `gen-lang-client-0790720774.descent_demo.text_embeddings`,
+    TABLE `${GCP_PROJECT}.descent_demo.text_embeddings`,
     'embedding',
     [0.1, 0.2, 0.3, 0.4, 0.5], -- "불일치 사례"와 유사한 쿼리 벡터
     top_k => 6,

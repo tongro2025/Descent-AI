@@ -304,7 +304,7 @@ def main():
     import argparse
     
     parser = argparse.ArgumentParser(description="Descent Evaluation Harness")
-    parser.add_argument("--project", default="gen-lang-client-0790720774", help="GCP 프로젝트 ID")
+    parser.add_argument("--project", default="your-project-id", help="GCP 프로젝트 ID")
     parser.add_argument("--dataset", default="descent_demo", help="BigQuery 데이터셋 ID")
     parser.add_argument("--modes", nargs="+", default=["text", "multimodal", "native"], help="평가할 모드들")
     

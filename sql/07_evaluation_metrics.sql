@@ -13,5 +13,5 @@ SELECT
     min_ori_score,
     max_ori_score,
     evaluated_at
-FROM `gen-lang-client-0790720774.descent_demo.eval_metrics`;
+FROM `${GCP_PROJECT}.descent_demo.eval_metrics`;
         
