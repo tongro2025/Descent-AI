@@ -1,0 +1,4 @@
+id,body,kind,meta
+A100,"High-performance GPU with 24GB VRAM for professional workloads","manual","gpu_spec"
+A101,"Durable laptop with 16GB RAM and SSD storage","manual","laptop_spec"
+A102,"Wireless mouse with ergonomic design and long battery life","manual","peripheral_spec"

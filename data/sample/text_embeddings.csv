@@ -1,0 +1,4 @@
+id,text,embedding
+A100,"High-performance GPU with 24GB VRAM for professional workloads","[0.1, 0.2, 0.3, 0.4, 0.5]"
+A101,"Durable laptop with 16GB RAM and SSD storage","[0.2, 0.3, 0.4, 0.5, 0.6]"
+A102,"Wireless mouse with ergonomic design and long battery life","[0.3, 0.4, 0.5, 0.6, 0.7]"

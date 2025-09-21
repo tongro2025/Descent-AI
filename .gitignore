@@ -109,14 +109,36 @@ tmp/
 *.json
 !package*.json
 !tsconfig*.json
+!reports/*.json
 
 # Competition data (NEVER commit)
-data/
-competition_data/
-*.csv
+# Allow sample data and other specific files
+!data/sample/
+!data/sample/*
+!artifacts/*.csv
+!screenshots/*.csv
+!docs/*.csv
+!sql/*.csv
 !requirements.csv
 !package*.csv
+
+# Ignore data folder except sample
+data/*
+!data/sample/
+!data/sample/*
+
+# Ignore competition data
+competition_data/
+
+# Ignore all CSV except allowed ones
+*.csv
 !data/sample/*.csv
+!artifacts/*.csv
+!screenshots/*.csv
+!docs/*.csv
+!sql/*.csv
+!requirements.csv
+!package*.csv
 
 # Environment variables
 .env

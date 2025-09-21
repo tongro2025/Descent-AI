@@ -335,6 +335,7 @@ Descent/
 - **No sensitive data**: This repository contains no actual competition data
 - **Environment variables**: All sensitive configuration is externalized
 - **Git ignore**: Sensitive files are automatically excluded from version control
+- **Security warning**: Never commit .env files or service account keys. Use .env.example as template only.
 
 ### Safe Configuration
 ```bash
