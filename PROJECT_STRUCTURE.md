@@ -69,6 +69,7 @@ Descent-AI/
 ├── 🛠️ Scripts & Tools
 │   └── scripts/
 │       ├── check_bq_ai.py           # BigQuery AI availability check
+│       ├── check_gitignore.sh       # Git ignore verification script
 │       ├── generate_real_embeddings.py # Real embedding generation
 │       ├── setup.sh                 # Environment setup script
 │       └── validate_pipeline.py     # Pipeline validation script
@@ -127,11 +128,12 @@ Descent-AI/
 - **Technical**: `accurate_extended_writeup.md`, `multimodal_evidence_report.md`
 - **Summary**: `bq_capture_summary.md`
 
-### Scripts & Tools (4 files)
+### Scripts & Tools (5 files)
 - **Setup**: `setup.sh`
 - **Validation**: `validate_pipeline.py`
 - **Generation**: `generate_real_embeddings.py`
 - **Checking**: `check_bq_ai.py`
+- **Security**: `check_gitignore.sh`
 
 ### Sample Data (4 files)
 - **Text**: `raw_texts.csv`, `text_embeddings.csv`
@@ -145,7 +147,7 @@ Descent-AI/
 - **Documentation**: 10 Markdown files
 - **Reports**: 9 result files
 - **Sample Data**: 4 CSV files
-- **Scripts**: 4 utility scripts
+- **Scripts**: 5 utility scripts
 
 ## 🎯 Key Features
 
@@ -162,7 +164,7 @@ Descent-AI/
 - **Quick Setup**: `docs/QUICK_START.md`
 - **Full Setup**: `docs/REAL_ENVIRONMENT_GUIDE.md`
 - **Run Demo**: `./run_demo.sh`
-- **Check Status**: `./check_gitignore.sh`
+- **Check Status**: `./scripts/check_gitignore.sh`
 - **Build All**: `make all`
 
 ---

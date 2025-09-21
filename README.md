@@ -274,8 +274,8 @@ Descent-AI/
 │
 └── 🛠️ Tools & Scripts
     ├── run_demo.sh                  # Complete demo script
-    ├── check_gitignore.sh           # Security verification
     ├── scripts/validate_pipeline.py # Pipeline validation
+    ├── scripts/check_gitignore.sh   # Security verification
     └── artifacts/                   # Generated outputs
 ```
 
