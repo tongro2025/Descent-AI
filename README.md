@@ -229,27 +229,57 @@ make ci-report     # CI reports
 ## 📁 Project Structure
 
 ```
-Descent/
-├── descent_cli.py              # Main CLI interface
-├── descent_pipeline_v2.py      # Core pipeline engine
-├── eval_harness.py             # Evaluation system
-├── config.yaml                 # Configuration file
-├── Makefile                    # Automation commands
-├── requirements.txt            # Python dependencies
-├── sql/                        # BigQuery SQL scripts
-│   ├── 01_schema.sql          # Database schema
-│   ├── 02_embeddings.sql      # Embedding generation
-│   ├── 03_incremental_idempotency.sql  # Incremental processing
-│   └── ...
-├── artifacts/                  # Generated results
-│   ├── evaluation_report.md   # Performance report
-│   ├── multimodal_evidence_report.md  # Multimodal proof
-│   └── *.csv                  # Result data
-└── docs/                       # Documentation
-    ├── README.md
-    ├── ARCHITECTURE.md
-    └── SCREENSHOT_GUIDE.md
+Descent-AI/
+├── 📄 Core Files
+│   ├── README.md                    # Project overview and usage guide
+│   ├── PROJECT_STRUCTURE.md         # Detailed project structure
+│   ├── config.yaml                  # Main configuration
+│   ├── Makefile                     # Build automation
+│   └── requirements.txt             # Python dependencies
+│
+├── 🐍 Source Code (src/descent/)
+│   ├── descent_cli.py               # Command-line interface
+│   ├── descent_pipeline_v2.py       # Core pipeline engine (319 lines)
+│   ├── bq.py                        # BigQuery client wrapper
+│   ├── config.py                    # Configuration management
+│   └── eval_harness.py              # Evaluation system
+│
+├── 🗄️ SQL Scripts (22 files)
+│   ├── 01_schema.sql                # Database schema
+│   ├── 02_embeddings.sql            # Embedding generation
+│   ├── 03_incremental_idempotency.sql # Incremental processing
+│   ├── 05_sample_data.sql           # Sample data insertion
+│   ├── 08_create_vector_index.sql   # Vector index creation
+│   ├── 12_ori_optimization.sql      # ORI algorithm optimization
+│   └── ...                          # 16 additional SQL scripts
+│
+├── 📚 Documentation (docs/)
+│   ├── ARCHITECTURE.md              # System architecture
+│   ├── QUICK_START.md               # Quick reproduction guide
+│   ├── REAL_ENVIRONMENT_GUIDE.md    # Production setup
+│   ├── KAGGLE_WRITEUP.md            # Competition writeup
+│   └── ...                          # 6 additional guides
+│
+├── 📊 Reports & Results (reports/)
+│   ├── evaluation_report.md         # Comprehensive evaluation
+│   ├── multimodal_evidence_report.md # Multimodal proof
+│   ├── performance_measurement_results.json # Performance data
+│   └── ...                          # 6 additional reports
+│
+├── 📈 Sample Data (data/sample/)
+│   ├── raw_texts.csv                # Sample text data
+│   ├── feat_struct.csv              # Sample structured features
+│   ├── text_embeddings.csv          # Sample text embeddings
+│   └── struct_embeddings.csv        # Sample structured embeddings
+│
+└── 🛠️ Tools & Scripts
+    ├── run_demo.sh                  # Complete demo script
+    ├── check_gitignore.sh           # Security verification
+    ├── scripts/validate_pipeline.py # Pipeline validation
+    └── artifacts/                   # Generated outputs
 ```
+
+**📋 Detailed Structure**: See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for complete file inventory.
 
 ## 🔧 Technical Details
 
