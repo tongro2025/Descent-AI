@@ -116,6 +116,7 @@ competition_data/
 *.csv
 !requirements.csv
 !package*.csv
+!data/sample/*.csv
 
 # Environment variables
 .env
