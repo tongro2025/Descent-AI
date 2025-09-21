@@ -1,144 +1,119 @@
-# Multimodal Descent - 빠른 재현 가이드
+# Multimodal Descent - Quick Reproduction Guide
 
-## 🚀 **5줄 재현 가이드**
+## 🚀 **5-Step Reproduction Guide**
 
-1. **환경 설정**: `cp .env.example .env` → GCP 프로젝트 ID 설정
-2. **의존성 설치**: `python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt`
-3. **GCP 인증**: `gcloud auth login && gcloud services enable bigquery.googleapis.com`
-4. **데이터셋 생성**: `make init` (BigQuery 데이터셋 생성)
-5. **실행**: `make sample_data && make embed && make search`
+1. **Environment Setup**: `cp .env.example .env` → Set GCP project ID
+2. **Dependencies Installation**: `python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt`
+3. **GCP Authentication**: `gcloud auth login && gcloud services enable bigquery.googleapis.com`
+4. **Dataset Creation**: `make init` (Create BigQuery dataset)
+5. **Execution**: `make sample_data && make embed && make search`
 
-## 📋 **실행 순서 (3~5단계)**
+## 📋 **Execution Steps (3-5 Steps)**
 
-### **1단계: 초기 설정**
+### **Step 1: Initial Setup**
 ```bash
-# 환경 변수 설정
+# Environment variables setup
 cp .env.example .env
-# GCP 프로젝트 ID를 .env 파일에 설정
+# Set GCP project ID in .env file
 
-# 가상환경 생성 및 의존성 설치
+# Virtual environment creation and dependencies installation
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-# GCP 인증 및 API 활성화
+# GCP authentication and API activation
 gcloud auth login
 gcloud services enable bigquery.googleapis.com
 ```
 
-### **2단계: 데이터셋 생성**
+### **Step 2: Dataset Creation**
 ```bash
-# BigQuery 데이터셋 생성
+# Create BigQuery dataset
 make init
-# 또는 직접 실행: bash scripts/setup.sh
+# Or run directly: bash scripts/setup.sh
 ```
 
-### **3단계: 샘플 데이터 적재**
+### **Step 3: Sample Data Loading**
 ```bash
-# 샘플 텍스트 및 구조화 특징 데이터 삽입
+# Insert sample text and structured feature data
 make sample_data
-# 또는 직접 실행: python -m src.descent.pipeline sample_data
+# Or run directly: python descent_cli.py sample-data
 ```
 
-### **4단계: 임베딩 생성**
+### **Step 4: Embedding Generation**
 ```bash
-# 텍스트 및 구조화 특징 벡터화
+# Generate text and structured embeddings
 make embed
-# 또는 직접 실행: python -m src.descent.pipeline embed
+# Or run directly: python descent_cli.py embed --mode vertex
 ```
 
-### **5단계: 검색 테스트**
+### **Step 5: Search and Results**
 ```bash
-# 벡터 검색 실행
+# Execute vector search
 make search
-# 또는 직접 실행: python -m src.descent.pipeline search
+# Or run directly: python descent_cli.py search
 
-# Before/After 비교
+# View results comparison
 make compare
-# 또는 직접 실행: python -m src.descent.pipeline compare
+# Or run directly: python descent_cli.py compare
 ```
 
-## 🔧 **환경 변수 설정 (.env)**
+## 🔧 **Alternative: One-Command Execution**
 
 ```bash
-GCP_PROJECT=your-project-id
-BQ_DATASET=descent_demo
-GCS_BUCKET=gs://your-bucket-name
-BQ_LOCATION=US
+# Complete pipeline in one command
+make all
+# Or run the demo script
+./run_demo.sh
 ```
 
-## 📊 **주요 결과 확인**
+## 📊 **Expected Results**
 
-### **벡터 검색 결과**
-```sql
-SELECT * FROM `your-project.descent_demo.report_before_after`;
-```
+After successful execution, you should see:
 
-### **ORI 불일치 지수**
-```sql
--- ORI 지수 계산 쿼리 실행
--- 높은 ORI 점수 = 높은 불일치 위험
-```
+- **Performance Metrics**: F1-Score > 0.9, Precision@K > 0.85
+- **Processing Time**: < 2 seconds for 1000 items
+- **Cost**: < $0.02 per 10,000 items
+- **Output Files**: Results in `artifacts/` directory
 
-### **성능 메트릭**
-- **처리 시간**: 평균 0.5초/건
-- **정확도**: 100% (6/6건 정확 식별)
-- **비용**: BigQuery 무료 범위 내
+## 🚨 **Troubleshooting**
 
-## 🚨 **문제 해결**
+### Common Issues:
 
-### **빌링 오류**
-```bash
-# 빌링 활성화 확인
-gcloud billing projects describe $GCP_PROJECT
-```
+1. **Authentication Error**
+   ```bash
+   gcloud auth application-default login
+   ```
 
-### **권한 오류**
-```bash
-# BigQuery 권한 확인
-gcloud projects get-iam-policy $GCP_PROJECT
-```
+2. **API Not Enabled**
+   ```bash
+   gcloud services enable bigquery.googleapis.com aiplatform.googleapis.com
+   ```
 
-### **API 오류**
-```bash
-# BigQuery API 활성화
-gcloud services enable bigquery.googleapis.com
-```
+3. **Permission Denied**
+   ```bash
+   # Ensure your account has BigQuery Admin and Vertex AI User roles
+   ```
 
-## 📈 **확장 방법**
+4. **Dataset Already Exists**
+   ```bash
+   # The system will handle existing datasets gracefully
+   ```
 
-### **실제 임베딩 모델 사용**
-```sql
--- textembedding-gecko 모델 사용
-CREATE OR REPLACE TABLE `project.dataset.emb_view_t` AS
-SELECT id, ML.GENERATE_EMBEDDING(
-  MODEL `project.models.textembedding-gecko@001`,
-  STRUCT(body AS content)
-).embedding AS embedding
-FROM `project.dataset.raw_texts`;
-```
+## 📁 **Output Files**
 
-### **이미지 처리 추가**
-```sql
--- multimodal-embedding 모델 사용
-CREATE OR REPLACE TABLE `project.dataset.emb_view_i` AS
-SELECT uri, ML.GENERATE_EMBEDDING(
-  MODEL `project.models.multimodal-embedding@001`,
-  STRUCT(ref AS content)
-).embedding AS embedding
-FROM `project.dataset.raw_docs`
-WHERE kind IN ('image','pdf');
-```
+After execution, check these directories:
+- `artifacts/` - Performance reports and results
+- `reports/` - Detailed analysis reports
+- `logs/` - Execution logs
 
-### **대규모 인덱스 생성**
-```sql
--- TREE_AH 인덱스 (대량 데이터용)
-CREATE VECTOR INDEX `project.dataset.idx_stitched`
-ON `project.dataset.emb_stitched`(embedding)
-OPTIONS(index_type='TREE_AH', distance_type='COSINE');
-```
+## 🎯 **Next Steps**
+
+1. Review the results in `artifacts/evaluation_report.md`
+2. Check BigQuery console for generated tables
+3. Run `python descent_cli.py report` for detailed metrics
+4. Explore the multimodal comparison results
 
 ---
 
-**💡 팁**: 모든 명령어는 프로젝트 루트 디렉토리에서 실행하세요!
-
+**Ready to go!** The system is designed to be reproducible with minimal setup. 🚀
