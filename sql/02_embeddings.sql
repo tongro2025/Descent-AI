@@ -1,4 +1,4 @@
--- 텍스트 임베딩 (BigQuery AI 모델 사용)
+-- Text Embeddings (Using BigQuery AI Model)
 CREATE OR REPLACE TABLE `${GCP_PROJECT}.${BQ_DATASET}.emb_view_t` AS
 SELECT
   id,
