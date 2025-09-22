@@ -3,11 +3,11 @@
 # Descent AI Demo Script
 # This script demonstrates the complete pipeline with sample data
 
-echo "🚀 Starting Descent AI Demo..."
+echo "Starting Descent AI Demo..."
 
 # Check if .env exists
 if [ ! -f .env ]; then
-    echo "⚠️  .env file not found. Please copy env.example to .env and configure it."
+    echo "WARNING: .env file not found. Please copy env.example to .env and configure it."
     exit 1
 fi
 
