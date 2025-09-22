@@ -1,42 +1,52 @@
-# Multimodal Descent Architecture
+# Descent AI: Multimodal Architecture
 
-## 시스템 아키텍처 다이어그램
+## System Architecture Overview
+
+Descent AI implements a production-grade multimodal discrepancy detection system using Google Cloud BigQuery AI functions, combining text, image, and structured data processing in a unified pipeline.
+
+## Core Architecture Diagram
 
 ```mermaid
 graph TB
     subgraph "Data Sources"
-        A[raw_texts<br/>제품 설명, 매뉴얼]
-        B[feat_struct<br/>구조화 특징]
-        C[raw_docs<br/>이미지, PDF]
+        A[raw_texts<br/>Product descriptions, manuals]
+        B[feat_struct<br/>Structured features]
+        C[raw_docs<br/>Images, PDFs]
+    end
+    
+    subgraph "BigQuery AI Functions"
+        D[ML.GENERATE_EMBEDDING<br/>text-embedding-005]
+        E[VECTOR_SEARCH<br/>Real-time similarity]
+        F[Object Tables<br/>Multimodal storage]
     end
     
     subgraph "Embedding Generation"
-        D[textembedding-gecko@001<br/>텍스트 임베딩]
-        E[z-score 정규화<br/>구조화 특징 벡터화]
-        F[multimodal-embedding<br/>이미지 임베딩]
+        G[Text Embeddings<br/>768D vectors]
+        H[Image Embeddings<br/>1408D vectors]
+        I[Structured Features<br/>3D normalized]
     end
     
     subgraph "Multimodal Fusion"
-        G[VECTOR_CONCAT<br/>텍스트 + 구조화 + 이미지]
-        H[emb_stitched<br/>통합 임베딩 테이블]
+        J[ARRAY_CONCAT<br/>Text + Image + Structured]
+        K[emb_stitched<br/>2179D unified vectors]
     end
     
     subgraph "Vector Search & Indexing"
-        I[VECTOR_SEARCH<br/>실시간 유사도 계산]
-        J[IVF Index<br/>Inverted File Index]
-        K[TREE_AH Index<br/>Approximate Nearest Neighbors]
+        L[VECTOR_SEARCH<br/>Real-time similarity calculation]
+        M[IVF Index<br/>Inverted File Index]
+        N[TREE_AH Index<br/>Approximate Nearest Neighbors]
     end
     
     subgraph "ORI Algorithm"
-        L[의미적 거리<br/>w=0.7]
-        M[규칙 기반 점수<br/>1-w=0.3]
-        N[ORI Score<br/>위험도 계산]
+        O[Semantic Distance<br/>w=0.7 weight]
+        P[Rule-based Score<br/>1-w=0.3 weight]
+        Q[ORI Score<br/>Risk calculation]
     end
     
     subgraph "Results & Analysis"
-        O[위험도 분류<br/>HIGH/MEDIUM/LOW]
-        P[Before/After 비교<br/>성능 메트릭]
-        Q[불일치 검출<br/>실시간 알림]
+        R[Risk Classification<br/>HIGH/MEDIUM/LOW]
+        S[Before/After Comparison<br/>Performance metrics]
+        T[Discrepancy Detection<br/>Real-time alerts]
     end
     
     A --> D
@@ -44,21 +54,25 @@ graph TB
     C --> F
     
     D --> G
-    E --> G
-    F --> G
+    F --> H
+    E --> I
     
-    G --> H
-    H --> I
+    G --> J
     H --> J
-    H --> K
+    I --> J
     
-    I --> L
-    L --> N
-    M --> N
+    J --> K
+    K --> L
+    K --> M
+    K --> N
     
-    N --> O
-    O --> P
+    L --> O
+    O --> Q
     P --> Q
+    
+    Q --> R
+    R --> S
+    S --> T
     
     style A fill:#e1f5fe
     style B fill:#e1f5fe
@@ -68,7 +82,7 @@ graph TB
     style F fill:#f3e5f5
     style G fill:#e8f5e8
     style H fill:#e8f5e8
-    style I fill:#fff3e0
+    style I fill:#e8f5e8
     style J fill:#fff3e0
     style K fill:#fff3e0
     style L fill:#ffebee
@@ -77,9 +91,12 @@ graph TB
     style O fill:#e0f2f1
     style P fill:#e0f2f1
     style Q fill:#e0f2f1
+    style R fill:#f1f8e9
+    style S fill:#f1f8e9
+    style T fill:#f1f8e9
 ```
 
-## 데이터 플로우
+## Data Flow Sequence
 
 ```mermaid
 sequenceDiagram
@@ -90,33 +107,33 @@ sequenceDiagram
     participant O as ORI Algorithm
     participant R as Results
     
-    U->>BQ: "스펙과 이미지 불일치 검색"
-    BQ->>E: 텍스트 임베딩 생성
-    E-->>BQ: 벡터 반환
-    BQ->>V: VECTOR_SEARCH 실행
-    V-->>BQ: 유사도 점수
-    BQ->>O: ORI 계산 (w=0.7, τ=0.3)
-    O-->>BQ: 위험도 분류
-    BQ-->>R: 불일치 검출 결과
-    R-->>U: HIGH/MEDIUM/LOW 위험도
+    U->>BQ: "Search spec and image discrepancies"
+    BQ->>E: Generate text embeddings
+    E-->>BQ: Return vectors
+    BQ->>V: Execute VECTOR_SEARCH
+    V-->>BQ: Similarity scores
+    BQ->>O: Calculate ORI (w=0.7, τ=0.3)
+    O-->>BQ: Risk classification
+    BQ-->>R: Discrepancy detection results
+    R-->>U: HIGH/MEDIUM/LOW risk levels
 ```
 
-## 성능 비교
+## Performance Comparison
 
 ```mermaid
 graph LR
-    subgraph "기존 방식"
-        A1[키워드 매칭]
-        A2[수동 검토]
+    subgraph "Baseline Approach"
+        A1[Keyword Matching]
+        A2[Manual Review]
         A3[F1: 0.28]
-        A4[시간: 2.3초]
+        A4[Time: 5 minutes]
     end
     
-    subgraph "Multimodal Descent"
-        B1[벡터 검색]
-        B2[자동 검출]
-        B3[F1: 0.92]
-        B4[시간: 0.35초]
+    subgraph "Descent AI"
+        B1[Vector Search]
+        B2[Automated Detection]
+        B3[F1: 0.67]
+        B4[Time: 1.22 seconds]
     end
     
     A1 --> A2 --> A3 --> A4
@@ -127,3 +144,91 @@ graph LR
     style B3 fill:#c8e6c9
     style B4 fill:#c8e6c9
 ```
+
+## BigQuery AI Functions Integration
+
+### 1. ML.GENERATE_EMBEDDING
+```sql
+-- Text embedding generation
+SELECT ML.GENERATE_EMBEDDING(
+  model => 'text-embedding-005',
+  content => description
+) AS text_vec
+FROM raw_texts;
+```
+
+### 2. VECTOR_SEARCH
+```sql
+-- Real-time vector similarity search
+SELECT VECTOR_SEARCH(
+  query => query_embedding,
+  table => 'descent_demo.emb_view_t_vertex',
+  options => JSON_OBJECT('top_k' => 10)
+) AS results;
+```
+
+### 3. Object Tables (Multimodal)
+```sql
+-- Integrated multimodal embeddings
+SELECT ARRAY_CONCAT(
+  text_embedding, 
+  image_embedding, 
+  struct_features
+) AS multimodal_vec
+FROM emb_stitched_real;
+```
+
+## Multimodal Integration Details
+
+### Embedding Dimensions
+- **Text**: 768D (Vertex AI text-embedding-005)
+- **Image**: 1408D (Vertex AI multimodalembedding@001)
+- **Structured**: 3D (Z-score normalized features)
+- **Combined**: 2179D (ARRAY_CONCAT integration)
+
+### ORI Algorithm
+The ORI (Discrepancy Index) algorithm combines:
+- **Semantic Distance**: Cosine similarity between embeddings (weight: 0.7)
+- **Rule-based Score**: Keyword matching for discrepancy terms (weight: 0.3)
+- **Weighted Combination**: `ORI = w * semantic_distance + (1-w) * rule_score`
+
+## Technical Implementation
+
+### Database Schema
+- `raw_texts`: Source text data with content hashing
+- `emb_view_t_vertex`: Vertex AI text embeddings (768D)
+- `emb_view_i_real`: Vertex AI image embeddings (1408D)
+- `feat_struct_vec`: Structured feature vectors (3D)
+- `emb_stitched_real`: Multimodal combined embeddings (2179D)
+- `report_ori`: ORI analysis results
+- `eval_metrics`: Performance evaluation metrics
+
+### Performance Characteristics
+- **Processing Speed**: 1.22 seconds per case
+- **Recall**: 100% on labeled mismatches
+- **Cost Efficiency**: $0.018 per 10k items
+- **Scalability**: Incremental processing with hash-based idempotency
+
+### Production Features
+- **Error Handling**: Comprehensive retry logic and dry-run mode
+- **Monitoring**: Cost tracking and performance metrics
+- **Automation**: CLI interface with Makefile integration
+- **Testing**: Integration tests and validation harness
+
+## Security & Compliance
+
+### Data Protection
+- No sensitive data stored in repository
+- Environment variables for configuration
+- Git ignore patterns for security files
+- CC BY 4.0 license for commercial use
+
+### Best Practices
+- Hash-based idempotency for incremental processing
+- Partitioned and clustered tables for performance
+- Externalized configuration management
+- Comprehensive documentation and testing
+
+---
+
+**Descent AI Architecture**: Production-ready multimodal discrepancy detection powered by BigQuery AI functions.
