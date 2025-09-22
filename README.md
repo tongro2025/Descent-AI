@@ -1,20 +1,24 @@
 # Descent: Multimodal Discrepancy Detection System
 
-## 🚀 Descent AI — Multimodal Mismatch Detection on BigQuery AI
-**BigQuery AI Functions:** ML.GENERATE_EMBEDDING · VECTOR_SEARCH · Object Tables  
-**Performance:** Recall 1.00 · F1 +138% · 1.22s/case (−99.8%) · $0.018/10k (−99.6%)  
-**Judge Quick Start:** [JUDGES.md](./JUDGES.md) | [Demo Video](https://youtu.be/PX92XztRlSQ) | [SQL Scripts](./sql)
+## BigQuery AI Functions Used
+**ML.GENERATE_EMBEDDING · VECTOR_SEARCH · Object Tables**
 
-A championship-level multimodal AI system for detecting discrepancies across text, image, and structured data using Google Cloud BigQuery AI and Vertex AI.
+## Key Results
+**Recall: 100% · F1: +138% · Time: 1.22s/case · Cost: $0.018/10k**
 
-## 🔗 Quick Links
+## Quick Start
+[JUDGES.md](./JUDGES.md) | [Demo Video](https://youtu.be/PX92XztRlSQ) | [SQL Scripts](./sql)
 
-- 🏆 **Judge Guide**: [JUDGES.md](./JUDGES.md) - 30-minute complete evaluation guide
-- 🧠 **Writeup**: [Kaggle Writeup](docs/KAGGLE_WRITEUP.md)
-- 💻 **GitHub**: https://github.com/tongro2025/Descent-AI
-- 🎬 **Demo Video**: [YouTube Demo](https://youtu.be/PX92XztRlSQ)
-- 📦 **Submission Bundle**: See `reports/` & `artifacts/` directories
-- 📄 **License**: CC BY 4.0 (per competition rules; commercial use permitted)
+A multimodal system for detecting discrepancies across text, image, and structured data using BigQuery AI and Vertex AI.
+
+## Links
+
+- **Judge Guide**: [JUDGES.md](./JUDGES.md)
+- **Writeup**: [Kaggle Writeup](docs/KAGGLE_WRITEUP.md)
+- **GitHub**: https://github.com/tongro2025/Descent-AI
+- **Demo Video**: [YouTube Demo](https://youtu.be/PX92XztRlSQ)
+- **Results**: See `reports/` & `artifacts/` directories
+- **License**: CC BY 4.0
 
 ## 📋 Data Preparation
 

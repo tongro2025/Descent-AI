@@ -1,6 +1,6 @@
 # BigQuery AI Hackathon Compliance Check
 
-## ✅ BigQuery AI Functions Usage
+## BigQuery AI Functions Usage
 
 ### ML.GENERATE_EMBEDDING
 - **Found in**: 6 SQL files
@@ -25,7 +25,7 @@
 - **Dimensions**: Text(768D) + Image(1408D) + Structured(3D) = 2179D
 - **Files**: `sql/08_multimodal_stitched.sql`
 
-## ✅ License Compliance
+## License Compliance
 
 ### CC BY 4.0 License
 - **File**: `LICENSE`
@@ -33,7 +33,7 @@
 - **Commercial Use**: ✅ Permitted
 - **Attribution Required**: ✅ Specified
 
-## ✅ Data Security
+## Data Security
 
 ### No Sensitive Data
 - **Competition Data**: ❌ Not included (properly excluded via .gitignore)
@@ -45,7 +45,7 @@
 - **Secrets**: Properly excluded via .gitignore
 - **Configuration**: Externalized to environment variables
 
-## ✅ Code Quality
+## Code Quality
 
 ### Python Code
 - **Structure**: Well-organized in `src/descent/`

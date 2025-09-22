@@ -1,18 +1,18 @@
-# 🏆 JUDGES QUICK START GUIDE
+# Judges Quick Start Guide
 
-## 🎯 30-Minute Complete Evaluation Guide for BigQuery AI Hackathon Judges
+## 30-Minute Evaluation Guide
 
-### 📋 Evaluation Checklist (5 minutes)
-- ✅ **BigQuery AI Functions**: ML.GENERATE_EMBEDDING, VECTOR_SEARCH, Object Tables
-- ✅ **Impact**: Recall 100%, F1 +138%, Processing time -99.8%, Cost -99.6%
-- ✅ **Executable**: `run_demo.sh` one-click execution
-- ✅ **Documentation**: Architecture, performance tables, code quality complete
+### Checklist (5 minutes)
+- **BigQuery AI Functions**: ML.GENERATE_EMBEDDING, VECTOR_SEARCH, Object Tables
+- **Impact**: Recall 100%, F1 +138%, Processing time -99.8%, Cost -99.6%
+- **Executable**: `run_demo.sh` one-click execution
+- **Documentation**: Architecture, performance tables, code quality complete
 
 ---
 
-## 🚀 3-Step Execution Guide
+## 3-Step Execution Guide
 
-### 1️⃣ Environment Setup (5 minutes)
+### 1. Environment Setup (5 minutes)
 ```bash
 # Clone project
 git clone https://github.com/tongro2025/Descent-AI.git
@@ -26,7 +26,7 @@ cp env.example .env
 pip install -r requirements.txt
 ```
 
-### 2️⃣ BigQuery AI Functions Verification (10 minutes)
+### 2. BigQuery AI Functions Verification (10 minutes)
 ```bash
 # Run demo (includes sample data)
 ./run_demo.sh
@@ -37,14 +37,14 @@ python descent_cli.py embed --mode native  # Uses BigQuery AI
 python descent_cli.py report --modes text multimodal native
 ```
 
-### 3️⃣ Results Verification (10 minutes)
+### 3. Results Verification (10 minutes)
 - **BigQuery Console**: Check `descent_demo` dataset
 - **Performance Report**: `reports/accurate_performance_table.html`
 - **SQL Scripts**: 22 scripts in `sql/` directory
 
 ---
 
-## 🔧 Core BigQuery AI Functions
+## Core BigQuery AI Functions
 
 ### ML.GENERATE_EMBEDDING
 ```sql
@@ -79,7 +79,7 @@ FROM emb_stitched_real;
 
 ---
 
-## 📊 Performance Impact Summary
+## Performance Impact Summary
 
 | Metric | Baseline | Descent AI | Improvement |
 |--------|----------|------------|-------------|
@@ -92,7 +92,7 @@ FROM emb_stitched_real;
 
 ---
 
-## 🏗️ Architecture Diagram
+## Architecture Diagram
 
 ```mermaid
 graph TB
@@ -129,7 +129,7 @@ graph TB
 
 ---
 
-## 📁 Core File Structure
+## Core File Structure
 
 ```
 Descent-AI/
@@ -143,7 +143,7 @@ Descent-AI/
 
 ---
 
-## 🏅 Evaluation Criteria Checklist
+## Evaluation Criteria Checklist
 
 ### ✅ Technical Innovation (25 points)
 - BigQuery AI functions utilization: ML.GENERATE_EMBEDDING, VECTOR_SEARCH
