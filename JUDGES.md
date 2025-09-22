@@ -126,17 +126,6 @@ graph TB
     I --> J
 ```
 
----
-
-## 🎬 Demo Video Timestamps
-
-- **0:00** - Problem definition and solution overview
-- **0:15** - BigQuery Object Tables utilization
-- **0:35** - ML.GENERATE_EMBEDDING implementation
-- **1:00** - VECTOR_SEARCH real-time search
-- **1:25** - Multimodal integration (2179D)
-- **1:50** - ORI algorithm and risk classification
-- **2:15** - Performance comparison and impact
 
 ---
 
