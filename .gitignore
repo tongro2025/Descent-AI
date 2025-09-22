@@ -1,8 +1,6 @@
 # Environment variables and secrets
 .env
-.env.local
-.env.production
-.env.staging
+.env.*
 *.key
 *.pem
 *.p12
@@ -10,34 +8,18 @@ service-account*.json
 credentials.json
 gcp-credentials.json
 
-# BigQuery sensitive data
-*.csv
-!artifacts/*.csv
-!screenshots/*.csv
-!docs/*.csv
-!sql/*.csv
+# Competition data (NEVER commit)
+data/*
+!data/sample/
+!data/sample/*.csv
 
 # Logs and temporary files
 logs/
 *.log
 *.tmp
 *.temp
-
-# IDE and editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+temp/
+tmp/
 
 # Python
 __pycache__/
@@ -69,21 +51,14 @@ ENV/
 env.bak/
 venv.bak/
 
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# IDE
+# IDE and editor files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# OS
+# OS generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -92,86 +67,8 @@ venv.bak/
 ehthumbs.db
 Thumbs.db
 
-# Logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Temporary files
-temp/
-tmp/
-*.tmp
-*.temp
-
-# BigQuery credentials
-*.json
-!package*.json
-!tsconfig*.json
-!reports/*.json
-
-# Competition data (NEVER commit)
-# Allow sample data and other specific files
-!data/sample/
-!data/sample/*
-!artifacts/*.csv
-!screenshots/*.csv
-!docs/*.csv
-!sql/*.csv
-!requirements.csv
-!package*.csv
-
-# Ignore data folder except sample
-data/*
-!data/sample/
-!data/sample/*
-
-# Ignore competition data
-competition_data/
-
-# Ignore all CSV except allowed ones
-*.csv
-!data/sample/*.csv
-!artifacts/*.csv
-!screenshots/*.csv
-!docs/*.csv
-!sql/*.csv
-!requirements.csv
-!package*.csv
-
-# Environment variables
-.env
-.env.*
-
 # Jupyter Notebook
 .ipynb_checkpoints
-
-# pyenv
-.python-version
-
-# pipenv
-Pipfile.lock
-
-# PEP 582
-__pypackages__/
-
-# Celery
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
 
 # mypy
 .mypy_cache/
@@ -180,3 +77,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Competition data (additional protection)
+competition_data/
+*.csv
+!data/sample/*.csv
+!reports/*.json
+!package*.json
+!tsconfig*.json

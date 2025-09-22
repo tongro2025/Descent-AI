@@ -1,0 +1,16 @@
+**Team Survey: BigQuery AI - Building the Future of Data**
+
+1) BigQuery AI Experience
+- Team Member 1 (Hakjun Kim): 0 months
+- Team Member 2 (Seunghwa Lee): 0 months
+
+2) Google Cloud Experience
+- Team Member 1 (Hakjun Kim): 0 months
+- Team Member 2 (Seunghwa Lee): 0 months
+
+3) Feedback
+This was our first time using BigQuery AI and Google Cloud.  
+
+- Positive: Even without prior experience, the functions were approachable. We were able to get results quickly using SQL and the integration with Vertex AI felt natural.  
+- Friction points: Because we were new, it took time to understand which functions (e.g., ML.GENERATE_EMBEDDING, VECTOR_SEARCH) were available in which regions. Error messages could be clearer for beginners. Documentation is solid, but more multimodal examples would help first-time users.  
+Overall, BigQuery AI lowered the barrier for newcomers. We could build a working multimodal system in just a few days, which shows the platform is powerful and beginner-friendly.
